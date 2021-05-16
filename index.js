@@ -25,6 +25,9 @@ app.post('/simulateError', (req, res, next) => {
     }
   } catch (error) {
     res.status(error.status).send(error)
+
+    // calling next here , control flows to next middleware in the chain
+    // which is the errorNotifier
     next(error)
   }
 })
